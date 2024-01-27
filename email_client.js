@@ -2,7 +2,7 @@
 const { SESClient, SendEmailCommand } = require("@aws-sdk/client-ses");
 
 // Create SES service object
-const sesClient = new SESClient({ region: "us-west-2" });
+const sesClient = new SESClient({ region: "us-east-1" });
 
 const sendEmail = async (subject, body) => {
     const sender = "Sender Name <sender@example.com>";
