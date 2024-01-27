@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Scott123180/zmm-scraper#readme",
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.501.0",
     "aws-sdk": "^2.1545.0",
     "axios": "^1.6.7",
     "cheerio": "^1.0.0-rc.12"
