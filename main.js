@@ -20,3 +20,13 @@ scrape().then(programData => {
 }).catch(error => {
     console.error('Error during scraping:', error);
 });
+
+/*
+TODO:
+compare with previously stored info for new information:
+1. create an s3 bucket (with object versioning)
+2. read previous json file from s3 bucket
+3. compare current info with s3 bucket info
+4. determine updates & email accordingly (past programs need not be notified)
+5. write new version of s3 file
+*/
