@@ -1,4 +1,4 @@
-const { scrape } = require('./scraper.js');
+const { scrape } = require('./scraper_client.js');
 
 /*
 sample program data object - if both hasWaitingList and hasRegistration is false, then the program should be in the past
