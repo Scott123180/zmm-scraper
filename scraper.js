@@ -37,28 +37,6 @@ exports.scrape = async (event) => {
     return detailedProgramData;
 };
 
-// async function checkProgramPage(url, currentTryCount, retries = 3, backoff = 300) {
-//     try {
-//         const { data } = await axios.get(url);
-//         const $ = cheerio.load(data);
-
-//         // Check for a waiting list or registration button
-//         const waitingListButton = $('.rs-registration-wait-list').length > 0;
-//         const registrationButton = $('.rs-registration-open').length > 0;
-
-//         return {
-//             url,
-//             hasWaitingList: waitingListButton,
-//             hasRegistration: registrationButton
-//         };
-//     } catch (error) {
-//         console.error(`Error fetching program page: ${url}`, error);
-
-//         // Increase the backoff for the next attempt
-//         return { url, error: true };
-//     }
-// }
-
 async function checkProgramPage(url, retries = 3, backoff = 300) {
     try {
         const { data } = await axios.get(url);
