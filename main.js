@@ -15,10 +15,17 @@ sample program data object - if both hasWaitingList and hasRegistration is false
 */
 
 scrape().then(programData => {
-    console.log('Scraped Data:', programData);
+    console.log(JSON.stringify(programData));
     // You can now use programData as needed
+
+    //download data from S3
+
+    //compare the files and get new events
+
+
 }).catch(error => {
     console.error('Error during scraping:', error);
+    //send an error email
 });
 
 /*
