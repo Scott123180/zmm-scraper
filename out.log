@@ -1,0 +1,609 @@
+local FS
+new scraped data
+[{"programId":"rs-program-id-3393","link":"https://zmm.org/our-programs-2/3393/in-touch-with-jizo-bodhisattva","title":"In Touch with Jizo Bodhisattva","programDate":"February 3, 2024","programLocation":"Zen Center of New York City","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3314","link":"https://zmm.org/our-programs-2/3314/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery","title":"Beginning Instruction on Sunday Mornings at Zen Mountain Monastery","programDate":"February 4, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3305","link":"https://zmm.org/our-programs-2/3305/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"February 4, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3319","link":"https://zmm.org/our-programs-2/3319/nuts-bolts-of-zen-practice-february","title":"Nuts & Bolts of Zen Practice (February)","programDate":"February 9, 2024","programLocation":"ONLINE","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3287","link":"https://zmm.org/our-programs-2/3287/further-steps-along-the-path-of-zen-exploring-wisdom-and-compassion","title":"Further Steps Along the Path of Zen: Exploring Wisdom and Compassion","programDate":"February 9 - 11, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":true,"hasRegistration":false},{"programId":"rs-program-id-3425","link":"https://zmm.org/our-programs-2/3425/beginning-instruction-online","title":"Beginning Instruction Online","programDate":"February 11, 2024","programLocation":"ONLINE","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3306","link":"https://zmm.org/our-programs-2/3306/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"February 11, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3310","link":"https://zmm.org/our-programs-2/3310/beginning-instruction-on-wednesday-evenings-at-zen-mountain-monastery-winter-schedule","title":"Beginning Instruction on Wednesday Evenings at Zen Mountain Monastery (winter schedule)","programDate":"February 14, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3443","link":"https://zmm.org/our-programs-2/3443/ecosattva-retreat-online","title":"Ecosattva Retreat (Online)","programDate":"February 17, 2024","programLocation":"Online (Zoom link in registration email)","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3440","link":"https://zmm.org/our-programs-2/3440/ecosattva-retreat","title":"Ecosattva Retreat","programDate":"February 17, 2024","programLocation":"Zen Center of New York City","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3315","link":"https://zmm.org/our-programs-2/3315/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery","title":"Beginning Instruction on Sunday Mornings at Zen Mountain Monastery","programDate":"February 18, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3307","link":"https://zmm.org/our-programs-2/3307/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"February 18, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3291","link":"https://zmm.org/our-programs-2/3291/one-continuous-thread-home-practice-intensive-february-2024","title":"One Continuous Thread: Home Practice Intensive—February 2024","programDate":"February 19 - 25, 2024","programLocation":"ONLINE","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3289","link":"https://zmm.org/our-programs-2/3289/bodhidharma-sesshin","title":"Bodhidharma Sesshin","programDate":"February 19 - 25, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":true,"hasRegistration":false},{"programId":"rs-program-id-3400","link":"https://zmm.org/our-programs-2/3400/half-day-sit-online","title":"Half-Day Sit (online)","programDate":"February 24, 2024","programLocation":"ONLINE","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3399","link":"https://zmm.org/our-programs-2/3399/half-day-sit-onsite","title":"Half-Day Sit (onsite)","programDate":"February 24, 2024","programLocation":"ZCNYC","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3308","link":"https://zmm.org/our-programs-2/3308/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"February 25, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3293","link":"https://zmm.org/our-programs-2/3293/weekend-sesshin-spring-ango-opening","title":"Weekend Sesshin- Spring Ango Opening","programDate":"March 1 - 3, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3401","link":"https://zmm.org/our-programs-2/3401/peaceful-dwelling-ango-opening-zazenkai","title":"Peaceful Dwelling Ango Opening Zazenkai","programDate":"March 2, 2024","programLocation":"Zen Center of New York City","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3316","link":"https://zmm.org/our-programs-2/3316/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"March 3, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3320","link":"https://zmm.org/our-programs-2/3320/nuts-bolts-of-zen-practice-march","title":"Nuts & Bolts of Zen Practice (March)","programDate":"March 8, 2024","programLocation":"ONLINE","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3297","link":"https://zmm.org/our-programs-2/3297/introduction-to-zen-training-weekend","title":"Introduction to Zen Training Weekend","programDate":"March 8 - 10, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3366","link":"https://zmm.org/our-programs-2/3366/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"March 10, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3371","link":"https://zmm.org/our-programs-2/3371/beginning-instruction-on-wednesday-evenings-at-zen-mountain-monastery","title":"Beginning Instruction on Wednesday Evenings at Zen Mountain Monastery","programDate":"March 13, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3370","link":"https://zmm.org/our-programs-2/3370/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery","title":"Beginning Instruction on Sunday Mornings at Zen Mountain Monastery","programDate":"March 17, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3367","link":"https://zmm.org/our-programs-2/3367/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"March 17, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3368","link":"https://zmm.org/our-programs-2/3368/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"March 24, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3351","link":"https://zmm.org/our-programs-2/3351/founding-sesshin","title":"Founding Sesshin","programDate":"March 25 - 31, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":true,"hasRegistration":false},{"programId":"rs-program-id-3343","link":"https://zmm.org/our-programs-2/3343/one-continuous-thread-home-practice-intensive-march-2024","title":"One Continuous Thread: Home Practice Intensive—March 2024","programDate":"March 25 - 31, 2024","programLocation":"ONLINE","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3404","link":"https://zmm.org/our-programs-2/3404/half-day-sit-online","title":"Half-Day Sit (online)","programDate":"March 30, 2024","programLocation":"ONLINE","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3403","link":"https://zmm.org/our-programs-2/3403/half-day-sit-onsite","title":"Half-Day Sit (onsite)","programDate":"March 30, 2024","programLocation":"ZCNYC","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3369","link":"https://zmm.org/our-programs-2/3369/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"March 31, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3298","link":"https://zmm.org/our-programs-2/3298/introduction-to-zen-training-weekend","title":"Introduction to Zen Training Weekend","programDate":"April 5 - 7, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3447","link":"https://zmm.org/our-programs-2/3447/genuine-field-zazenkai","title":"Genuine Field Zazenkai","programDate":"April 6, 2024","programLocation":"Zen Center of New York City","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3420","link":"https://zmm.org/our-programs-2/3420/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery","title":"Beginning Instruction on Sunday Mornings at Zen Mountain Monastery","programDate":"April 7, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3410","link":"https://zmm.org/our-programs-2/3410/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"April 7, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3377","link":"https://zmm.org/our-programs-2/3377/wonder-into-wonder-an-art-practice-retreat","title":"Wonder into Wonder: An Art Practice Retreat","programDate":"April 12 - 14, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3322","link":"https://zmm.org/our-programs-2/3322/nuts-bolts-of-zen-practice-april","title":"Nuts & Bolts of Zen Practice (April)","programDate":"April 12, 2024","programLocation":"ONLINE","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3412","link":"https://zmm.org/our-programs-2/3412/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"April 14, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3362","link":"https://zmm.org/our-programs-2/3362/true-refuge-week-self-directed-intensive-practice-for-mro-students","title":"True Refuge Week: Self-Directed Intensive Practice for MRO Students","programDate":"April 16 - 21, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":true,"hasRegistration":false},{"programId":"rs-program-id-3429","link":"https://zmm.org/our-programs-2/3429/beginning-instruction-on-wednesday-evenings-at-zen-mountain-monastery","title":"Beginning Instruction on Wednesday Evenings at Zen Mountain Monastery","programDate":"April 17, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3105","link":"https://zmm.org/our-programs-2/3105/precepts-ii-entering-the-way-of-compassion-the-practices-of-a-bodhisattva-with-hogen-sensei","title":"Precepts II- Entering the Way of Compassion: The Practices of a Bodhisattva with Hogen Sensei","programDate":"April 19 - 21, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3426","link":"https://zmm.org/our-programs-2/3426/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery","title":"Beginning Instruction on Sunday Mornings at Zen Mountain Monastery","programDate":"April 21, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3413","link":"https://zmm.org/our-programs-2/3413/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"April 21, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3353","link":"https://zmm.org/our-programs-2/3353/apple-blossom-sesshin","title":"Apple Blossom Sesshin","programDate":"April 22 - 28, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":true,"hasRegistration":false},{"programId":"rs-program-id-3345","link":"https://zmm.org/our-programs-2/3345/one-continuous-thread-home-practice-intensive-april-2024","title":"One Continuous Thread: Home Practice Intensive—April 2024","programDate":"April 22 - 28, 2024","programLocation":"ONLINE","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3414","link":"https://zmm.org/our-programs-2/3414/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"April 28, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3299","link":"https://zmm.org/our-programs-2/3299/introduction-to-zen-training-weekend","title":"Introduction to Zen Training Weekend","programDate":"May 3 - 5, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3427","link":"https://zmm.org/our-programs-2/3427/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery","title":"Beginning Instruction on Sunday Mornings at Zen Mountain Monastery","programDate":"May 5, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3415","link":"https://zmm.org/our-programs-2/3415/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"May 5, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3283","link":"https://zmm.org/our-programs-2/3283/butoh-receptivity-and-the-nervous-system","title":"Butoh: Receptivity and the Nervous System","programDate":"May 9 - 12, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3323","link":"https://zmm.org/our-programs-2/3323/nuts-bolts-of-zen-practice-may","title":"Nuts & Bolts of Zen Practice (May)","programDate":"May 10, 2024","programLocation":"ONLINE","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3356","link":"https://zmm.org/our-programs-2/3356/premier-solo-performance-the-slowest-wave","title":"Premier Solo Performance: The Slowest Wave","programDate":"May 11, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3416","link":"https://zmm.org/our-programs-2/3416/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"May 12, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3430","link":"https://zmm.org/our-programs-2/3430/beginning-instruction-on-wednesday-evenings-at-zen-mountain-monastery","title":"Beginning Instruction on Wednesday Evenings at Zen Mountain Monastery","programDate":"May 15, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3428","link":"https://zmm.org/our-programs-2/3428/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery","title":"Beginning Instruction on Sunday Mornings at Zen Mountain Monastery","programDate":"May 19, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3417","link":"https://zmm.org/our-programs-2/3417/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"May 19, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3348","link":"https://zmm.org/our-programs-2/3348/ocean-gathering-sesshin","title":"Ocean Gathering Sesshin","programDate":"May 20 - 26, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":true,"hasRegistration":false},{"programId":"rs-program-id-3346","link":"https://zmm.org/our-programs-2/3346/one-continuous-thread-home-practice-intensive-may-2024","title":"One Continuous Thread: Home Practice Intensive—May 2024","programDate":"May 20 - 26, 2024","programLocation":"ONLINE","hasWaitingList":false,"hasRegistration":true},{"programId":"rs-program-id-3418","link":"https://zmm.org/our-programs-2/3418/sunday-mornings-at-zen-mountain-monastery","title":"Sunday Mornings at Zen Mountain Monastery","programDate":"May 26, 2024","programLocation":"Zen Mountain Monastery","hasWaitingList":false,"hasRegistration":true}]
+
+
+Stored Data:
+read stored data!
+[
+  {
+    programId: 'rs-program-id-3393',
+    link: 'https://zmm.org/our-programs-2/3393/in-touch-with-jizo-bodhisattva',
+    title: 'In Touch with Jizo Bodhisattva',
+    programDate: 'February 3, 2024',
+    programLocation: 'Zen Center of New York City',
+    firstSeenTimestamp: 1707008510808,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3314',
+    link: 'https://zmm.org/our-programs-2/3314/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery',
+    title: 'Beginning Instruction on Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'February 4, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510808,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3305',
+    link: 'https://zmm.org/our-programs-2/3305/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'February 4, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510808,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3319',
+    link: 'https://zmm.org/our-programs-2/3319/nuts-bolts-of-zen-practice-february',
+    title: 'Nuts & Bolts of Zen Practice (February)',
+    programDate: 'February 9, 2024',
+    programLocation: 'ONLINE',
+    firstSeenTimestamp: 1707008510809,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3287',
+    link: 'https://zmm.org/our-programs-2/3287/further-steps-along-the-path-of-zen-exploring-wisdom-and-compassion',
+    title: 'Further Steps Along the Path of Zen: Exploring Wisdom and Compassion',
+    programDate: 'February 9 - 11, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510809,
+    hasWaitingList: true,
+    hasRegistration: false
+  },
+  {
+    programId: 'rs-program-id-3425',
+    link: 'https://zmm.org/our-programs-2/3425/beginning-instruction-online',
+    title: 'Beginning Instruction Online',
+    programDate: 'February 11, 2024',
+    programLocation: 'ONLINE',
+    firstSeenTimestamp: 1707008510809,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3306',
+    link: 'https://zmm.org/our-programs-2/3306/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'February 11, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510809,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3310',
+    link: 'https://zmm.org/our-programs-2/3310/beginning-instruction-on-wednesday-evenings-at-zen-mountain-monastery-winter-schedule',
+    title: 'Beginning Instruction on Wednesday Evenings at Zen Mountain Monastery (winter schedule)',
+    programDate: 'February 14, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510809,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3443',
+    link: 'https://zmm.org/our-programs-2/3443/ecosattva-retreat-online',
+    title: 'Ecosattva Retreat (Online)',
+    programDate: 'February 17, 2024',
+    programLocation: 'Online (Zoom link in registration email)',
+    firstSeenTimestamp: 1707008510809,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3440',
+    link: 'https://zmm.org/our-programs-2/3440/ecosattva-retreat',
+    title: 'Ecosattva Retreat',
+    programDate: 'February 17, 2024',
+    programLocation: 'Zen Center of New York City',
+    firstSeenTimestamp: 1707008510809,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3315',
+    link: 'https://zmm.org/our-programs-2/3315/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery',
+    title: 'Beginning Instruction on Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'February 18, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510810,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3307',
+    link: 'https://zmm.org/our-programs-2/3307/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'February 18, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510810,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3291',
+    link: 'https://zmm.org/our-programs-2/3291/one-continuous-thread-home-practice-intensive-february-2024',
+    title: 'One Continuous Thread: Home Practice Intensive—February 2024',
+    programDate: 'February 19 - 25, 2024',
+    programLocation: 'ONLINE',
+    firstSeenTimestamp: 1707008510810,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3289',
+    link: 'https://zmm.org/our-programs-2/3289/bodhidharma-sesshin',
+    title: 'Bodhidharma Sesshin',
+    programDate: 'February 19 - 25, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510810,
+    hasWaitingList: true,
+    hasRegistration: false
+  },
+  {
+    programId: 'rs-program-id-3400',
+    link: 'https://zmm.org/our-programs-2/3400/half-day-sit-online',
+    title: 'Half-Day Sit (online)',
+    programDate: 'February 24, 2024',
+    programLocation: 'ONLINE',
+    firstSeenTimestamp: 1707008510810,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3399',
+    link: 'https://zmm.org/our-programs-2/3399/half-day-sit-onsite',
+    title: 'Half-Day Sit (onsite)',
+    programDate: 'February 24, 2024',
+    programLocation: 'ZCNYC',
+    firstSeenTimestamp: 1707008510810,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3308',
+    link: 'https://zmm.org/our-programs-2/3308/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'February 25, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510810,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3293',
+    link: 'https://zmm.org/our-programs-2/3293/weekend-sesshin-spring-ango-opening',
+    title: 'Weekend Sesshin- Spring Ango Opening',
+    programDate: 'March 1 - 3, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510810,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3401',
+    link: 'https://zmm.org/our-programs-2/3401/peaceful-dwelling-ango-opening-zazenkai',
+    title: 'Peaceful Dwelling Ango Opening Zazenkai',
+    programDate: 'March 2, 2024',
+    programLocation: 'Zen Center of New York City',
+    firstSeenTimestamp: 1707008510811,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3316',
+    link: 'https://zmm.org/our-programs-2/3316/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'March 3, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510811,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3320',
+    link: 'https://zmm.org/our-programs-2/3320/nuts-bolts-of-zen-practice-march',
+    title: 'Nuts & Bolts of Zen Practice (March)',
+    programDate: 'March 8, 2024',
+    programLocation: 'ONLINE',
+    firstSeenTimestamp: 1707008510811,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3297',
+    link: 'https://zmm.org/our-programs-2/3297/introduction-to-zen-training-weekend',
+    title: 'Introduction to Zen Training Weekend',
+    programDate: 'March 8 - 10, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510811,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3366',
+    link: 'https://zmm.org/our-programs-2/3366/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'March 10, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510811,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3371',
+    link: 'https://zmm.org/our-programs-2/3371/beginning-instruction-on-wednesday-evenings-at-zen-mountain-monastery',
+    title: 'Beginning Instruction on Wednesday Evenings at Zen Mountain Monastery',
+    programDate: 'March 13, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510811,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3370',
+    link: 'https://zmm.org/our-programs-2/3370/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery',
+    title: 'Beginning Instruction on Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'March 17, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510811,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3367',
+    link: 'https://zmm.org/our-programs-2/3367/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'March 17, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510811,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3368',
+    link: 'https://zmm.org/our-programs-2/3368/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'March 24, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510811,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3351',
+    link: 'https://zmm.org/our-programs-2/3351/founding-sesshin',
+    title: 'Founding Sesshin',
+    programDate: 'March 25 - 31, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510812,
+    hasWaitingList: true,
+    hasRegistration: false
+  },
+  {
+    programId: 'rs-program-id-3343',
+    link: 'https://zmm.org/our-programs-2/3343/one-continuous-thread-home-practice-intensive-march-2024',
+    title: 'One Continuous Thread: Home Practice Intensive—March 2024',
+    programDate: 'March 25 - 31, 2024',
+    programLocation: 'ONLINE',
+    firstSeenTimestamp: 1707008510812,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3404',
+    link: 'https://zmm.org/our-programs-2/3404/half-day-sit-online',
+    title: 'Half-Day Sit (online)',
+    programDate: 'March 30, 2024',
+    programLocation: 'ONLINE',
+    firstSeenTimestamp: 1707008510812,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3403',
+    link: 'https://zmm.org/our-programs-2/3403/half-day-sit-onsite',
+    title: 'Half-Day Sit (onsite)',
+    programDate: 'March 30, 2024',
+    programLocation: 'ZCNYC',
+    firstSeenTimestamp: 1707008510812,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3369',
+    link: 'https://zmm.org/our-programs-2/3369/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'March 31, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510812,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3298',
+    link: 'https://zmm.org/our-programs-2/3298/introduction-to-zen-training-weekend',
+    title: 'Introduction to Zen Training Weekend',
+    programDate: 'April 5 - 7, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510812,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3447',
+    link: 'https://zmm.org/our-programs-2/3447/genuine-field-zazenkai',
+    title: 'Genuine Field Zazenkai',
+    programDate: 'April 6, 2024',
+    programLocation: 'Zen Center of New York City',
+    firstSeenTimestamp: 1707008510812,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3420',
+    link: 'https://zmm.org/our-programs-2/3420/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery',
+    title: 'Beginning Instruction on Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'April 7, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510812,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3410',
+    link: 'https://zmm.org/our-programs-2/3410/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'April 7, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510812,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3377',
+    link: 'https://zmm.org/our-programs-2/3377/wonder-into-wonder-an-art-practice-retreat',
+    title: 'Wonder into Wonder: An Art Practice Retreat',
+    programDate: 'April 12 - 14, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510813,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3322',
+    link: 'https://zmm.org/our-programs-2/3322/nuts-bolts-of-zen-practice-april',
+    title: 'Nuts & Bolts of Zen Practice (April)',
+    programDate: 'April 12, 2024',
+    programLocation: 'ONLINE',
+    firstSeenTimestamp: 1707008510813,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3412',
+    link: 'https://zmm.org/our-programs-2/3412/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'April 14, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510813,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3362',
+    link: 'https://zmm.org/our-programs-2/3362/true-refuge-week-self-directed-intensive-practice-for-mro-students',
+    title: 'True Refuge Week: Self-Directed Intensive Practice for MRO Students',
+    programDate: 'April 16 - 21, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510813,
+    hasWaitingList: true,
+    hasRegistration: false
+  },
+  {
+    programId: 'rs-program-id-3429',
+    link: 'https://zmm.org/our-programs-2/3429/beginning-instruction-on-wednesday-evenings-at-zen-mountain-monastery',
+    title: 'Beginning Instruction on Wednesday Evenings at Zen Mountain Monastery',
+    programDate: 'April 17, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510813,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3105',
+    link: 'https://zmm.org/our-programs-2/3105/precepts-ii-entering-the-way-of-compassion-the-practices-of-a-bodhisattva-with-hogen-sensei',
+    title: 'Precepts II- Entering the Way of Compassion: The Practices of a Bodhisattva with Hogen Sensei',
+    programDate: 'April 19 - 21, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510813,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3426',
+    link: 'https://zmm.org/our-programs-2/3426/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery',
+    title: 'Beginning Instruction on Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'April 21, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510813,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3413',
+    link: 'https://zmm.org/our-programs-2/3413/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'April 21, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510813,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3353',
+    link: 'https://zmm.org/our-programs-2/3353/apple-blossom-sesshin',
+    title: 'Apple Blossom Sesshin',
+    programDate: 'April 22 - 28, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510814,
+    hasWaitingList: true,
+    hasRegistration: false
+  },
+  {
+    programId: 'rs-program-id-3345',
+    link: 'https://zmm.org/our-programs-2/3345/one-continuous-thread-home-practice-intensive-april-2024',
+    title: 'One Continuous Thread: Home Practice Intensive—April 2024',
+    programDate: 'April 22 - 28, 2024',
+    programLocation: 'ONLINE',
+    firstSeenTimestamp: 1707008510814,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3414',
+    link: 'https://zmm.org/our-programs-2/3414/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'April 28, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510814,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3299',
+    link: 'https://zmm.org/our-programs-2/3299/introduction-to-zen-training-weekend',
+    title: 'Introduction to Zen Training Weekend',
+    programDate: 'May 3 - 5, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510814,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3427',
+    link: 'https://zmm.org/our-programs-2/3427/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery',
+    title: 'Beginning Instruction on Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'May 5, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510814,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3415',
+    link: 'https://zmm.org/our-programs-2/3415/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'May 5, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510814,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3283',
+    link: 'https://zmm.org/our-programs-2/3283/butoh-receptivity-and-the-nervous-system',
+    title: 'Butoh: Receptivity and the Nervous System',
+    programDate: 'May 9 - 12, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510814,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3323',
+    link: 'https://zmm.org/our-programs-2/3323/nuts-bolts-of-zen-practice-may',
+    title: 'Nuts & Bolts of Zen Practice (May)',
+    programDate: 'May 10, 2024',
+    programLocation: 'ONLINE',
+    firstSeenTimestamp: 1707008510814,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3356',
+    link: 'https://zmm.org/our-programs-2/3356/premier-solo-performance-the-slowest-wave',
+    title: 'Premier Solo Performance: The Slowest Wave',
+    programDate: 'May 11, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510814,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3416',
+    link: 'https://zmm.org/our-programs-2/3416/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'May 12, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510815,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3430',
+    link: 'https://zmm.org/our-programs-2/3430/beginning-instruction-on-wednesday-evenings-at-zen-mountain-monastery',
+    title: 'Beginning Instruction on Wednesday Evenings at Zen Mountain Monastery',
+    programDate: 'May 15, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510815,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3428',
+    link: 'https://zmm.org/our-programs-2/3428/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery',
+    title: 'Beginning Instruction on Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'May 19, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510815,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3417',
+    link: 'https://zmm.org/our-programs-2/3417/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'May 19, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510815,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3348',
+    link: 'https://zmm.org/our-programs-2/3348/ocean-gathering-sesshin',
+    title: 'Ocean Gathering Sesshin',
+    programDate: 'May 20 - 26, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510815,
+    hasWaitingList: true,
+    hasRegistration: false
+  },
+  {
+    programId: 'rs-program-id-3346',
+    link: 'https://zmm.org/our-programs-2/3346/one-continuous-thread-home-practice-intensive-may-2024',
+    title: 'One Continuous Thread: Home Practice Intensive—May 2024',
+    programDate: 'May 20 - 26, 2024',
+    programLocation: 'ONLINE',
+    firstSeenTimestamp: 1707008510815,
+    hasWaitingList: false,
+    hasRegistration: true
+  },
+  {
+    programId: 'rs-program-id-3418',
+    link: 'https://zmm.org/our-programs-2/3418/sunday-mornings-at-zen-mountain-monastery',
+    title: 'Sunday Mornings at Zen Mountain Monastery',
+    programDate: 'May 26, 2024',
+    programLocation: 'Zen Mountain Monastery',
+    firstSeenTimestamp: 1707008510815,
+    hasWaitingList: false,
+    hasRegistration: true
+  }
+]

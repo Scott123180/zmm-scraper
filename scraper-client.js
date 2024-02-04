@@ -1,8 +1,9 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 
+const url = 'https://zmm.org/all-programs/';
+
 exports.scrape = async (event) => {
-    const url = 'https://zmm.org/all-programs/';
     const { data } = await axios.get(url);
     const $ = cheerio.load(data);
 
@@ -20,7 +21,7 @@ exports.scrape = async (event) => {
         // Check if the link has already been seen
         if (!seenLinks.has(link)) {
             seenLinks.add(link); // Mark the link as seen
-            return { programId, link, title, programDate, programLocation};
+            return { programId, link, title, programDate, programLocation };
         }
     }).get()
         .filter(item => item); //filter out undefined items (where link was seen)
