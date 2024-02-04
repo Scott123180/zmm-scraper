@@ -16,12 +16,11 @@ exports.scrape = async (event) => {
         const title = $(el).find('a').text().trim(); // Find the 'a' element and get its text
         const programDate = $(el).find('.rs-program-date').text().trim(); // Find the .rs-program-date and get its text
         const programLocation = $(el).find('.rs-program-location').text().trim(); // Find the .rs-program-date and get its text
-        const firstSeenTimestamp = Date.now();
 
         // Check if the link has already been seen
         if (!seenLinks.has(link)) {
             seenLinks.add(link); // Mark the link as seen
-            return { programId, link, title, programDate, programLocation,firstSeenTimestamp};
+            return { programId, link, title, programDate, programLocation};
         }
     }).get()
         .filter(item => item); //filter out undefined items (where link was seen)
