@@ -1,31 +1,26 @@
-exports.processProgramData = (newData, storedData) => {
-    const updatedData = [];
+exports.processProgramData = (scraperData, storedData) => {
+    const newPrograms = [];
+    const waitlistedPrograms = [];
     const expiredPrograms = [];
     const currentTimestamp = new Date().getTime();
 
     //TODO: account for timed out data - i.e. retreat page timed out
-    newData.forEach(newProgram => {
-        const storedProgram = storedData.find(sd => sd.programId === newProgram.programId);
+    scraperData.forEach(scrapedProgram => {
+        const storedProgram = storedData.find(sd => sd.programId === scrapedProgram.programId);
 
-        if (storedProgram) {
+        if (storedProgram && programHasFilledUp(storedProgram, scrapedProgram)) {
             // Check for status changes
-            if (programHasFilledUp(storedProgram, newProgram)) {
-                newProgram.filledUpTimestamp = currentTimestamp;
-                newProgram.updated = true;
-            }
-
-            updatedData.push(newProgram);
-
+            scrapedProgram.filledUpTimestamp = currentTimestamp;
+            waitlistedPrograms.push(scrapedProgram);
         } else {
             // New program, add it to the updated list
-            newProgram.firstSeenTimestamp = currentTimestamp;
-            newProgram.updated = true;
-            updatedData.push(newProgram);
+            scrapedProgram.firstSeenTimestamp = currentTimestamp;
+            newPrograms.push(scrapedProgram);
         }
     });
 
     storedData.forEach(storedProgram => {
-        const storedDataStillOnPage = newData.find(nd => nd.programId === storedProgram.programId);
+        const storedDataStillOnPage = scraperData.find(nd => nd.programId === storedProgram.programId);
 
         if (storedDataStillOnPage === undefined) {
             expiredPrograms.push(storedProgram);
@@ -33,7 +28,7 @@ exports.processProgramData = (newData, storedData) => {
     });
 
 
-    return { updatedData, expiredPrograms };
+    return { newPrograms, waitlistedPrograms, expiredPrograms };
 }
 
 exports.generateUpdateContent = (updated, expiredPrograms) => {

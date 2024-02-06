@@ -4,6 +4,7 @@ const { scrape } = require('./scraper-client.js');
 const { processProgramData } = require('./data-processor.js');
 const S3StorageClient = require('./S3StorageClient');
 const LocalFileSystemClient = require('./LocalFileSystemClient');
+const { composeAndSendEmail } = require('./email-client.js');
 
 let storageClient;
 
@@ -24,13 +25,20 @@ async function main() {
       console.log("read stored data!")
 
       storedData.then(sd => {
-        const { updatedData, expiredPrograms } = processProgramData(programData, sd);
-        console.log("Updated Data:", updatedData);
+        //TODO: put in one object
+        const { newPrograms, waitlistedPrograms, expiredPrograms } = processProgramData(programData, sd);
+        console.log("New Programs:", newPrograms)
+        console.log("Waitlisted Programs:", waitlistedPrograms);
         console.log("Expired Programs:", expiredPrograms);
+
+        //generate emails
+        if(newPrograms || waitlistedPrograms || expiredPrograms){
+          composeAndSendEmail("me@scotthansen.io", newPrograms, waitlistedPrograms, expiredPrograms);
+        }
       });
     }).catch(error => {
       console.error('Error during scraping:', error);
-      //send an error email
+      //send an error email to me
     });
 
 }
@@ -38,10 +46,8 @@ async function main() {
 main();
 /*
 TODO:
-compare with previously stored info for new information:
-1. create an s3 bucket (with object versioning)
-2. read previous json file from s3 bucket
-3. compare current info with s3 bucket info
 4. determine updates & email accordingly (past programs need not be notified)
 5. write new version of s3 file
+- if I'm up for it, create a user preferences object and choose to subscribe to different types of updates 
+(i.e. maybe) I don't care about sunday morning registration
 */

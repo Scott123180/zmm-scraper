@@ -1,24 +1,29 @@
 // Import required AWS SDK clients and commands for Node.js
 const { SESClient, SendEmailCommand } = require("@aws-sdk/client-ses");
 
+const MS_IN_A_DAY = 86_400_000;
+
 // Create SES service object
 const sesClient = new SESClient({ region: "us-east-1" });
 
-const sendEmail = async (subject, body) => {
-    const sender = "Sender Name <sender@example.com>";
-    const recipient = "recipient@example.com";
+const sender = "ZMM Scraper <zmm-scraper@scotthansen.io>";
+
+exports.composeAndSendEmail = (recipient, newPrograms, waitlistedPrograms, expiredPrograms) => {
+
+    bodyHTML = generateBodyHTML(newPrograms, waitlistedPrograms, expiredPrograms);
+    body = generateBodyNonHTML(newPrograms, waitlistedPrograms, expiredPrograms);
+    console.log("");
+    console.log("");
+    console.log("");
+    console.log(bodyHTML);
+
+    sendEmail(recipient, bodyHTML);
+}
+
+const sendEmail = async (recipient, bodyHTML, body) => {
 
     // The email body for recipients with non-HTML email clients
     const bodyText = body;
-    
-    // The HTML body of the email
-    const bodyHTML = `<html>
-        <head></head>
-        <body>
-          <h1>${subject}</h1>
-          <p>${body}</p>
-        </body>
-        </html>`;
 
     // Set the parameters
     const params = {
@@ -40,7 +45,7 @@ const sendEmail = async (subject, body) => {
             },
             Subject: {
                 Charset: 'UTF-8',
-                Data: subject,
+                Data: "ZMM Programs Have Been Updated",
             },
         },
         Source: sender,
@@ -54,6 +59,89 @@ const sendEmail = async (subject, body) => {
     }
 };
 
-// Use the function
-sendEmail("Subject of the email", "Body of the email");
+const generateBodyHTML = (newPrograms, waitlistedPrograms, expiredPrograms) => {
+    return `<html>
+        <head></head>
+        <body>
+        <h1>Updates to ZMM Programs Have Been Found</h1>
+            ${generateNewProgramContent(newPrograms)}
+            ${generateWaitlistedProgramContent(waitlistedPrograms)}
+            ${generateExpiredProgramContent(expiredPrograms)}
+        </body>
+        </html>`;
+}
+const generateBodyNonHTML = (newPrograms, waitlistedPrograms, expiredPrograms) => {
+    return `
+    You are viewing the non HTML version of this content, for a better experience, please use a 
+    client that supports HTML emails. Thank you!
 
+    New Program Content: ${JSON.stringify(newPrograms)}
+    Waitlisted Programs: ${JSON.stringify(waitlistedPrograms)}
+    Expired Programs: ${JSON.stringify(expiredPrograms)}
+    `
+}
+
+const generateNewProgramContent = (programs) => {
+    if(programs.length === 0) return "";
+
+    let htmlContent = "<h2>New Programs</h2>";
+
+    programs.forEach(program => {
+        htmlContent += `
+            <h3>${program.title}</h3>
+            <p>
+                Date: ${program.programDate}<br>
+                Location: ${program.programLocation}<br>
+                Registration Link: <a href="${program.link}" target="_blank" rel="noreferrer">Click here for registration</a><br>
+            </p>
+        `;
+    });
+
+    return htmlContent;
+}
+const generateWaitlistedProgramContent = (programs) => {
+    if(programs.length === 0) return "";
+
+    let htmlContent = "<h2>Sorry, it looks like some programs have been waitlisted</h2>";
+
+    programs.forEach(program => {
+        const daysToFillUp = calculateDays(program.firstSeenTimestamp, program.filledUpTimestamp)
+
+        htmlContent += `
+            <h3>${program.title}</h3>
+            <p>
+                Date: ${program.programDate}<br>
+                Location: ${program.programLocation}<br>
+                Waitlist Link: <a href="${program.link}" target="_blank" rel="noreferrer">Click here to join the waitlist</a><br>
+                How long it took to reach capacity: ${daysToFillUp} days.<br>
+            </p>
+        `;
+    });
+
+    return htmlContent;
+
+}
+const generateExpiredProgramContent = (programs) => {
+    if(programs.length === 0) return "";
+
+    let htmlContent = "<h2>These programs have expired</h2>";
+
+    programs.forEach(program => {
+        const daysOnSite = calculateDays(program.firstSeenTimestamp,new Date().getTime());
+        htmlContent += `
+            <h3>${program.title}</h3>
+            <p>
+                Date: ${program.programDate}<br>
+                Location: ${program.programLocation}<br>
+                Days On Site: ${daysOnSite} days
+            </p>
+        `;
+    });
+
+    return htmlContent;
+
+}
+
+const calculateDays = (startMs, endMs) => {
+    return Math.round((endMs - startMs) / MS_IN_A_DAY);
+}
