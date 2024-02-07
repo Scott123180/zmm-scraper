@@ -61,13 +61,20 @@ const sendEmail = async (recipient, bodyHTML, body) => {
 
 const generateBodyHTML = (newPrograms, waitlistedPrograms, expiredPrograms) => {
     return `<html>
-        <head></head>
+        <head>
+       
+        <style>
+            h1 {text-align: center;}
+            footer {text-align: center;}
+        </style>
+        </head>
         <body>
         <h1>Updates to ZMM Programs Have Been Found</h1>
             ${generateNewProgramContent(newPrograms)}
             ${generateWaitlistedProgramContent(waitlistedPrograms)}
             ${generateExpiredProgramContent(expiredPrograms)}
         </body>
+        <footer>Message created by <a href="https://github.com/Scott123180/zmm-scraper" target="_blank" rel="noreferrer">ZMM Scraper</footer>
         </html>`;
 }
 const generateBodyNonHTML = (newPrograms, waitlistedPrograms, expiredPrograms) => {
@@ -84,7 +91,7 @@ const generateBodyNonHTML = (newPrograms, waitlistedPrograms, expiredPrograms) =
 const generateNewProgramContent = (programs) => {
     if(programs.length === 0) return "";
 
-    let htmlContent = "<h2>New Programs</h2>";
+    let htmlContent = "<h2><strong><u>New Programs</u><strong></h2>";
 
     programs.forEach(program => {
         htmlContent += `
@@ -102,9 +109,10 @@ const generateNewProgramContent = (programs) => {
 const generateWaitlistedProgramContent = (programs) => {
     if(programs.length === 0) return "";
 
-    let htmlContent = "<h2>Sorry, it looks like some programs have been waitlisted</h2>";
+    let htmlContent = "<h2><strong><u>Sorry, it looks like some programs have been waitlisted</u></strong></h2>";
 
     programs.forEach(program => {
+
         const daysToFillUp = calculateDays(program.firstSeenTimestamp, program.filledUpTimestamp)
 
         htmlContent += `
@@ -124,7 +132,7 @@ const generateWaitlistedProgramContent = (programs) => {
 const generateExpiredProgramContent = (programs) => {
     if(programs.length === 0) return "";
 
-    let htmlContent = "<h2>These programs have expired</h2>";
+    let htmlContent = "<h2><strong><u>These programs have expired</u></strong></h2>";
 
     programs.forEach(program => {
         const daysOnSite = calculateDays(program.firstSeenTimestamp,new Date().getTime());

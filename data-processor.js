@@ -9,9 +9,10 @@ exports.processProgramData = (scraperData, storedData) => {
         const storedProgram = storedData.find(sd => sd.programId === scrapedProgram.programId);
 
         if (storedProgram && programHasFilledUp(storedProgram, scrapedProgram)) {
-            // Check for status changes
-            scrapedProgram.filledUpTimestamp = currentTimestamp;
-            waitlistedPrograms.push(scrapedProgram);
+            const shallowCopy = Object.assign({}, storedProgram);
+
+            shallowCopy.filledUpTimestamp = currentTimestamp;
+            waitlistedPrograms.push(shallowCopy);
         } else {
             // New program, add it to the updated list
             scrapedProgram.firstSeenTimestamp = currentTimestamp;
@@ -31,7 +32,7 @@ exports.processProgramData = (scraperData, storedData) => {
     return { newPrograms, waitlistedPrograms, expiredPrograms };
 }
 
-exports.generateNewStoredPrograms = (storedData, newPrograms, waitlistedPrograms, expiredPrograms) => {
+exports.createNewSaveData = (storedData, newPrograms, waitlistedPrograms, expiredPrograms) => {
     let combinedList = [...storedData];
 
     //remove the expired programs from the combined list
@@ -58,10 +59,6 @@ exports.generateUpdateContent = (updated, expiredPrograms) => {
      waitlisted programs: {program title, location, link, original post date, how long it took to fill}
      expired programs: {program title, location, date, original post date, how long was on website}
     */
-}
-
-exports.createNewSaveData = (updatedData, expiredPrograms) => {
-    //generate the new file that will be saved to s3
 }
 
 function programHasFilledUp(storedProgram, newProgram) {
