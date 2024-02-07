@@ -31,6 +31,27 @@ exports.processProgramData = (scraperData, storedData) => {
     return { newPrograms, waitlistedPrograms, expiredPrograms };
 }
 
+exports.generateNewStoredPrograms = (storedData, newPrograms, waitlistedPrograms, expiredPrograms) => {
+    let combinedList = [...storedData];
+
+    //remove the expired programs from the combined list
+    combinedList.filter(listElement => {
+        const foundExpiredProgram = expiredPrograms.find(expiredProgram => expiredProgram.programId === listElement.programId);
+
+        return foundExpiredProgram === undefined;
+    });
+
+    //remove the original waitlisted program info so we can add the new updates to the stored data
+    combinedList.filter(listElement => {
+        const foundWaitlistedProgram = waitlistedPrograms.find(waitlistedProgram => waitlistedProgram.programId === listElement.programId);
+
+        return foundWaitlistedProgram === undefined;
+    });
+
+    combinedList.concat(waitlistedPrograms);
+    combinedList.concat(newPrograms);
+}
+
 exports.generateUpdateContent = (updated, expiredPrograms) => {
     /*create the content that will be sent out in mail
      new programs: {program title, location, date, link}
