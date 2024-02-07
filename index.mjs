@@ -1,6 +1,7 @@
 const { main } = require('./main.js')
 
-exports.handler = async (event, context) => {
+export const handler = async (event) => {
+
     try {
         // Your code logic here
         console.log("Lambda function has started execution");
