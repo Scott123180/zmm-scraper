@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'local') {
   storageClient = new S3StorageClient();
 }
 
-async function main() {
+exports.main = () => {
   scrape()
     .then(programData => {
 
