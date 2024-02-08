@@ -8,4 +8,4 @@ class StorageClient {
     }
 }
 
-module.exports = StorageClient;
+export default StorageClient;
