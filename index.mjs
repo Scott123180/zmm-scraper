@@ -8,7 +8,7 @@ export const handler = async (event) => {
 
         // Example: Call another function or perform some operation
         // const result = await someOtherFunction();
-        main();
+        await main();
 
         // Return a response
         return {
