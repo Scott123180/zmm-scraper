@@ -18,29 +18,25 @@ if (process.env.NODE_ENV === 'local') {
 }
 
 const main = async () => {
-  try {
-    const programData = await scrape();
+  const programData = await scrape();
 
-    // download data from S3
-    const storedData = await storageClient.download();
-    console.log("read stored data!");
+  // download data from S3
+  const storedData = await storageClient.download();
+  console.log("read stored data!");
 
-    // Process the program data
-    const { newPrograms, waitlistedPrograms, expiredPrograms } = await processProgramData(programData, storedData);
-    console.log("New Programs:", newPrograms);
-    console.log("Waitlisted Programs:", waitlistedPrograms);
-    console.log("Expired Programs:", expiredPrograms);
+  // Process the program data
+  const { newPrograms, waitlistedPrograms, expiredPrograms } = await processProgramData(programData, storedData);
+  console.log("New Programs:", newPrograms);
+  console.log("Waitlisted Programs:", waitlistedPrograms);
+  console.log("Expired Programs:", expiredPrograms);
 
-    // Generate and send emails if there are any updates
-    if(newPrograms.length > 0 || waitlistedPrograms.length > 0 || expiredPrograms.length > 0){
-      await composeAndSendEmail("me@scotthansen.io", newPrograms, waitlistedPrograms, expiredPrograms);
-    }
-  } catch (error) {
-    console.error('Error during operation:', error);
-    throw error; 
-    // Optionally, send an error email to yourself
-    // await composeAndSendEmail("your_email", "Error in Lambda Execution", error.toString());
+  // Generate and send emails if there are any updates
+  if (newPrograms.length > 0 || waitlistedPrograms.length > 0 || expiredPrograms.length > 0) {
+    await composeAndSendEmail("me@scotthansen.io", newPrograms, waitlistedPrograms, expiredPrograms);
+
+    //TODO: upload new file to S3
   }
+
 };
 
 export default main;
