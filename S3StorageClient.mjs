@@ -33,10 +33,11 @@ class S3StorageClient extends StorageClient {
 
         try {
             const data = await s3.getObject(params);
-
             console.log("file downloaded successfully!")
 
-            return JSON.parse(data);
+            const bodyContents = await data.Body.transformToString('utf-8')
+
+            return JSON.parse(bodyContents);
         } catch (error) {
             console.error('Error downloading file from S3:', error);
             throw error;
