@@ -44,7 +44,6 @@ export const main = async () => {
 
 }
 
-main();
 /*
 TODO:
 4. determine updates & email accordingly (past programs need not be notified)

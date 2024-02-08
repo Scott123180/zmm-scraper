@@ -21,4 +21,4 @@ class LocalFileSystemClient extends StorageClient {
     }
 }
 
-module.exports = LocalFileSystemClient;
+export default LocalFileSystemClient;
