@@ -2,6 +2,9 @@ import fs from 'fs/promises';
 
 import StorageClient from './StorageClient.mjs';
 
+//first run data
+//const sourcePath = './resources/testInputEmpty.json';
+
 const sourcePath = './resources/testInput.json';
 
 class LocalFileSystemClient extends StorageClient {

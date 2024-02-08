@@ -37,6 +37,7 @@ const main = async () => {
     }
   } catch (error) {
     console.error('Error during operation:', error);
+    throw error; 
     // Optionally, send an error email to yourself
     // await composeAndSendEmail("your_email", "Error in Lambda Execution", error.toString());
   }
