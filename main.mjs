@@ -42,34 +42,6 @@ const main = async () => {
   }
 };
 
-/*
-const main = async () => {
-  scrape()
-    .then(programData => {
-
-      //download data from S3
-      const storedData = storageClient.download();
-      console.log("read stored data!")
-
-      storedData.then(sd => {
-        //TODO: put in one object
-        const { newPrograms, waitlistedPrograms, expiredPrograms } = processProgramData(programData, sd);
-        console.log("New Programs:", newPrograms)
-        console.log("Waitlisted Programs:", waitlistedPrograms);
-        console.log("Expired Programs:", expiredPrograms);
-
-        //generate emails
-        if(newPrograms || waitlistedPrograms || expiredPrograms){
-          composeAndSendEmail("me@scotthansen.io", newPrograms, waitlistedPrograms, expiredPrograms);
-        }
-      });
-    }).catch(error => {
-      console.error('Error during scraping:', error);
-      //send an error email to me
-    });
-}
-*/
-
 export default main;
 /*
 TODO:
