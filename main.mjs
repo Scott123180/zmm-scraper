@@ -26,7 +26,7 @@ const main = async () => {
     console.log("read stored data!");
 
     // Process the program data
-    const { newPrograms, waitlistedPrograms, expiredPrograms } = processProgramData(programData, storedData);
+    const { newPrograms, waitlistedPrograms, expiredPrograms } = await processProgramData(programData, storedData);
     console.log("New Programs:", newPrograms);
     console.log("Waitlisted Programs:", waitlistedPrograms);
     console.log("Expired Programs:", expiredPrograms);
