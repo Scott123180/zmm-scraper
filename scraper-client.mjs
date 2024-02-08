@@ -1,10 +1,10 @@
-import { get } from 'axios';
+import axios from 'axios';
 import { load } from 'cheerio';
 
 const url = 'https://zmm.org/all-programs/';
 
 export async function scrape(event) {
-    const { data } = await get(url);
+    const { data } = await axios.get(url);
     const $ = load(data);
 
 
@@ -36,14 +36,14 @@ export async function scrape(event) {
     const detailedProgramData = await Promise.all(programDetailsPromises);
 
     return detailedProgramData;
-}
+};
 
 async function checkProgramPage(url, retries = 3, backoff = 300) {
     try {
-        const { data } = await get(url);
+        const { data } = await axios.get(url);
         // If the request is successful, return the data
 
-        const $ = load(data);
+        const $ = cheerio.load(data);
 
         // Check for a waiting list or registration button
         const waitingListButton = $('.rs-registration-wait-list').length > 0;

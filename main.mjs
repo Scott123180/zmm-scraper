@@ -1,4 +1,4 @@
-import dotenv from ('dotenv');
+import dotenv from 'dotenv';
 import { scrape } from './scraper-client.mjs';
 import { processProgramData } from './data-processor.mjs';
 import S3StorageClient from './S3StorageClient.mjs';
@@ -44,6 +44,7 @@ export const main = async () => {
 
 }
 
+main();
 /*
 TODO:
 4. determine updates & email accordingly (past programs need not be notified)

@@ -8,16 +8,16 @@ const sesClient = new SESClient({ region: "us-east-1" });
 
 const sender = "ZMM Scraper <zmm-scraper@scotthansen.io>";
 
-exports.composeAndSendEmail = (recipient, newPrograms, waitlistedPrograms, expiredPrograms) => {
+export function composeAndSendEmail(recipient, newPrograms, waitlistedPrograms, expiredPrograms) {
 
-    bodyHTML = generateBodyHTML(newPrograms, waitlistedPrograms, expiredPrograms);
-    body = generateBodyNonHTML(newPrograms, waitlistedPrograms, expiredPrograms);
+    const bodyHTML = generateBodyHTML(newPrograms, waitlistedPrograms, expiredPrograms);
+    const body = generateBodyNonHTML(newPrograms, waitlistedPrograms, expiredPrograms);
     console.log("");
     console.log("");
     console.log("");
     console.log(bodyHTML);
 
-    sendEmail(recipient, bodyHTML);
+    sendEmail(recipient, bodyHTML, body);
 }
 
 const sendEmail = async (recipient, bodyHTML, body) => {
@@ -89,7 +89,7 @@ const generateBodyNonHTML = (newPrograms, waitlistedPrograms, expiredPrograms) =
 }
 
 const generateNewProgramContent = (programs) => {
-    if(programs.length === 0) return "";
+    if (programs.length === 0) return "";
 
     let htmlContent = "<h2><strong><u>New Programs</u><strong></h2>";
 
@@ -107,7 +107,7 @@ const generateNewProgramContent = (programs) => {
     return htmlContent;
 }
 const generateWaitlistedProgramContent = (programs) => {
-    if(programs.length === 0) return "";
+    if (programs.length === 0) return "";
 
     let htmlContent = "<h2><strong><u>Sorry, it looks like some programs have been waitlisted</u></strong></h2>";
 
@@ -130,12 +130,12 @@ const generateWaitlistedProgramContent = (programs) => {
 
 }
 const generateExpiredProgramContent = (programs) => {
-    if(programs.length === 0) return "";
+    if (programs.length === 0) return "";
 
     let htmlContent = "<h2><strong><u>These programs have expired</u></strong></h2>";
 
     programs.forEach(program => {
-        const daysOnSite = calculateDays(program.firstSeenTimestamp,new Date().getTime());
+        const daysOnSite = calculateDays(program.firstSeenTimestamp, new Date().getTime());
         htmlContent += `
             <h3>${program.title}</h3>
             <p>
