@@ -8,7 +8,7 @@ const sesClient = new SESClient({ region: "us-east-1" });
 
 const sender = "ZMM Scraper <zmm-scraper@scotthansen.io>";
 
-export function composeAndSendEmail(recipient, newPrograms, waitlistedPrograms, expiredPrograms) {
+export async function composeAndSendEmail(recipient, newPrograms, waitlistedPrograms, expiredPrograms) {
 
     const bodyHTML = generateBodyHTML(newPrograms, waitlistedPrograms, expiredPrograms);
     const body = generateBodyNonHTML(newPrograms, waitlistedPrograms, expiredPrograms);
@@ -17,7 +17,7 @@ export function composeAndSendEmail(recipient, newPrograms, waitlistedPrograms, 
     console.log("");
     console.log(bodyHTML);
 
-    sendEmail(recipient, bodyHTML, body);
+    await sendEmail(recipient, bodyHTML, body);
 }
 
 const sendEmail = async (recipient, bodyHTML, body) => {

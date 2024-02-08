@@ -1,4 +1,7 @@
-export function processProgramData(scraperData, storedData) {
+export async function processProgramData(scraperDataPromise, storedDataPromise) {
+    const scraperData = await scraperDataPromise;
+    const storedData = await storedDataPromise;
+
     const newPrograms = [];
     const waitlistedPrograms = [];
     const expiredPrograms = [];
