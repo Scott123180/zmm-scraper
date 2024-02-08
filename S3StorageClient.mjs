@@ -16,7 +16,7 @@ class S3StorageClient extends StorageClient {
         };
 
         try {
-            const result = await s3.upload(params).promise();
+            const result = await s3.upload(params);
             console.log('Upload Success', result);
             return result;
         } catch (error) {
@@ -32,7 +32,7 @@ class S3StorageClient extends StorageClient {
         };
 
         try {
-            const data = await s3.getObject(params).promise();
+            const data = await s3.getObject(params);
             console.log("file downloaded successfully!")
 
             return data;
