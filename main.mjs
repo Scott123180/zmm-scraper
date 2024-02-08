@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === 'local') {
   storageClient = new S3StorageClient();
 }
 
-export const main = async () => {
+export default main = async () => {
   scrape()
     .then(programData => {
 
@@ -44,7 +44,6 @@ export const main = async () => {
 
 }
 
-main();
 /*
 TODO:
 4. determine updates & email accordingly (past programs need not be notified)
