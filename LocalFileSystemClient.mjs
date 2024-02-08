@@ -1,5 +1,6 @@
-const fs = require('fs').promises;
-const StorageClient = require('./StorageClient');
+import fs from 'fs/promises';
+
+import StorageClient from './StorageClient.mjs';
 
 const sourcePath = './resources/testInput.json';
 

@@ -1,5 +1,5 @@
 // Import required AWS SDK clients and commands for Node.js
-const { SESClient, SendEmailCommand } = require("@aws-sdk/client-ses");
+import { SESClient, SendEmailCommand } from "@aws-sdk/client-ses";
 
 const MS_IN_A_DAY = 86_400_000;
 

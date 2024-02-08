@@ -1,10 +1,10 @@
-const AWS = require('@aws-sdk/client-s3');
-const s3 = new AWS.S3();
+import { S3 } from '@aws-sdk/client-s3';
+const s3 = new S3();
 
 const bucketName = "zmm-scraper"
 const key = "programData.json"
 
-const StorageClient = require('./StorageClient');
+import StorageClient from './StorageClient.mjs';
 
 class S3StorageClient extends StorageClient {
     async upload() {
@@ -43,4 +43,4 @@ class S3StorageClient extends StorageClient {
     }
 }
 
-module.exports = S3StorageClient;
+export default S3StorageClient;

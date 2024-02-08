@@ -1,10 +1,11 @@
-require('dotenv').config();
+import dotenv from ('dotenv');
+import { scrape } from './scraper-client.mjs';
+import { processProgramData } from './data-processor.mjs';
+import S3StorageClient from './S3StorageClient.mjs';
+import LocalFileSystemClient from './LocalFileSystemClient.mjs';
+import { composeAndSendEmail } from './email-client.mjs';
 
-const { scrape } = require('./scraper-client.js');
-const { processProgramData } = require('./data-processor.js');
-const S3StorageClient = require('./S3StorageClient');
-const LocalFileSystemClient = require('./LocalFileSystemClient');
-const { composeAndSendEmail } = require('./email-client.js');
+dotenv.config();
 
 let storageClient;
 

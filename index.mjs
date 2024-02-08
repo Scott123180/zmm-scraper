@@ -1,4 +1,4 @@
-const { main } = require('./main.js')
+import main from './main.mjs';
 
 export const handler = async (event) => {
 

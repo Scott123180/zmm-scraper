@@ -1,4 +1,4 @@
-exports.processProgramData = (scraperData, storedData) => {
+export function processProgramData(scraperData, storedData) {
     const newPrograms = [];
     const waitlistedPrograms = [];
     const expiredPrograms = [];
@@ -32,7 +32,7 @@ exports.processProgramData = (scraperData, storedData) => {
     return { newPrograms, waitlistedPrograms, expiredPrograms };
 }
 
-exports.createNewSaveData = (storedData, newPrograms, waitlistedPrograms, expiredPrograms) => {
+export function createNewSaveData(storedData, newPrograms, waitlistedPrograms, expiredPrograms) {
     let combinedList = [...storedData];
 
     //remove the expired programs from the combined list
@@ -53,7 +53,7 @@ exports.createNewSaveData = (storedData, newPrograms, waitlistedPrograms, expire
     combinedList.concat(newPrograms);
 }
 
-exports.generateUpdateContent = (updated, expiredPrograms) => {
+export function generateUpdateContent(updated, expiredPrograms) {
     /*create the content that will be sent out in mail
      new programs: {program title, location, date, link}
      waitlisted programs: {program title, location, link, original post date, how long it took to fill}
