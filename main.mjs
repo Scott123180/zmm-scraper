@@ -36,6 +36,9 @@ const main = async () => {
 
     //upload new file to S3
     const newSaveData = createNewSaveData(storedData, newPrograms, waitlistedPrograms, expiredPrograms);
+
+    console.log("new save data")
+    console.log(JSON.stringify(newSaveData))
     await storageClient.upload(newSaveData)
   }
 

@@ -1,5 +1,6 @@
-import { S3, PutObjectCommand} from '@aws-sdk/client-s3';
-const s3 = new S3();
+import { S3Client, PutObjectCommand, GetObjectCommand } from '@aws-sdk/client-s3';
+
+const client = new S3Client({});
 
 const bucketName = "zmm-scraper"
 const key = "programData.json"
@@ -8,15 +9,15 @@ import StorageClient from './StorageClient.mjs';
 
 class S3StorageClient extends StorageClient {
     async upload(data) {
-        const params = {
+
+        const command = new PutObjectCommand({
             Bucket: bucketName,
             Key: key,
             Body: JSON.stringify(data),
             ContentType: 'application/json'
-        };
+        });
 
         try {
-            const command = new PutObjectCommand(params);
             const result = await s3.send(command);
             console.log('Upload Success', result);
             return result;
@@ -27,13 +28,14 @@ class S3StorageClient extends StorageClient {
     }
 
     async download() {
-        const params = {
-            Bucket: bucketName,
-            Key: key
-        };
 
         try {
-            const data = await s3.getObject(params);
+            const command = new GetObjectCommand({
+                Bucket: bucketName,
+                Key: key
+            });
+
+            const data = await s3.send(command);
             console.log("file downloaded successfully!")
 
             const bodyContents = await data.Body.transformToString('utf-8')
