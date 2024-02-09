@@ -74,7 +74,9 @@ const generateBodyHTML = (newPrograms, waitlistedPrograms, expiredPrograms) => {
             ${generateWaitlistedProgramContent(waitlistedPrograms)}
             ${generateExpiredProgramContent(expiredPrograms)}
         </body>
-        <footer>Message created by <a href="https://github.com/Scott123180/zmm-scraper" target="_blank" rel="noreferrer">ZMM Scraper</footer>
+        <footer>Message created by <a href="https://github.com/Scott123180/zmm-scraper" target="_blank" rel="noreferrer">ZMM Scraper. </a>
+        To see all programs, please click <a href="https://zmm.org/all-programs/" target="_blank" rel="noreferrer"> here</a>.
+        </footer>
         </html>`;
 }
 const generateBodyNonHTML = (newPrograms, waitlistedPrograms, expiredPrograms) => {
@@ -91,7 +93,7 @@ const generateBodyNonHTML = (newPrograms, waitlistedPrograms, expiredPrograms) =
 const generateNewProgramContent = (programs) => {
     if (programs.length === 0) return "";
 
-    let htmlContent = "<h2><strong><u>New Programs</u><strong></h2>";
+    let htmlContent = "<h2><strong><u>New Programs</u></strong></h2>";
 
     programs.forEach(program => {
         htmlContent += `

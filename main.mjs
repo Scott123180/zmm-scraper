@@ -19,6 +19,9 @@ if (process.env.NODE_ENV === 'local') {
 
 const main = async () => {
   const programData = await scrape();
+  console.log("scraped!")
+  console.log(JSON.stringify(programData));
+  console.log("end")
 
   // download data from S3
   const storedData = await storageClient.download();

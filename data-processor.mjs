@@ -65,7 +65,9 @@ export function generateUpdateContent(updated, expiredPrograms) {
 }
 
 function programHasFilledUp(storedProgram, newProgram) {
-    return storedProgram.hasWaitingList === false && storedProgram.hasRegistration === true &&
-        newProgram.hasWaitingList === true && newProgram.hasRegistration === false;
+    return (storedProgram.hasWaitingList === undefined || storedProgram.hasRegistration === undefined)
+    || (storedProgram.hasWaitingList === false && storedProgram.hasRegistration === true )    
+    && newProgram.hasWaitingList === true 
+    && newProgram.hasRegistration === false;
 }
 
