@@ -15,7 +15,7 @@ export async function processProgramData(scraperDataPromise, storedDataPromise) 
 
             shallowCopy.filledUpTimestamp = currentTimestamp;
             waitlistedPrograms.push(shallowCopy);
-        } else {
+        } else if (storedProgram === undefined) {
             // New program, add it to the updated list
             scrapedProgram.firstSeenTimestamp = currentTimestamp;
             newPrograms.push(scrapedProgram);
