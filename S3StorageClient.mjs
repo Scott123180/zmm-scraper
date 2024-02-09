@@ -1,4 +1,4 @@
-import { S3 } from '@aws-sdk/client-s3';
+import { S3, PutObjectCommand} from '@aws-sdk/client-s3';
 const s3 = new S3();
 
 const bucketName = "zmm-scraper"
@@ -16,7 +16,8 @@ class S3StorageClient extends StorageClient {
         };
 
         try {
-            const result = await s3.send(params);
+            const command = new PutObjectCommand(params);
+            const result = await s3.send(command);
             console.log('Upload Success', result);
             return result;
         } catch (error) {
