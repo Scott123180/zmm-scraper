@@ -51,8 +51,8 @@ export function createNewSaveData(storedData, newPrograms, waitlistedPrograms, e
         return foundWaitlistedProgram === undefined;
     });
 
-    combinedList.concat(waitlistedPrograms);
-    combinedList.concat(newPrograms);
+    combinedList = combinedList.concat(waitlistedPrograms);
+    combinedList = combinedList.concat(newPrograms);
 
     return combinedList;
 }
