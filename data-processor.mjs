@@ -38,17 +38,17 @@ export function createNewSaveData(storedData, newPrograms, waitlistedPrograms, e
     let combinedList = [...storedData];
 
     //remove the expired programs from the combined list
-    combinedList.filter(listElement => {
+    combinedList = combinedList.filter(listElement => {
         const foundExpiredProgram = expiredPrograms.find(expiredProgram => expiredProgram.programId === listElement.programId);
 
-        return foundExpiredProgram !== undefined;
+        return foundExpiredProgram === undefined;
     });
 
     //remove the original waitlisted program info so we can add the new updates to the stored data
-    combinedList.filter(listElement => {
+    combinedList = combinedList.filter(listElement => {
         const foundWaitlistedProgram = waitlistedPrograms.find(waitlistedProgram => waitlistedProgram.programId === listElement.programId);
 
-        return foundWaitlistedProgram !== undefined;
+        return foundWaitlistedProgram === undefined;
     });
 
     combinedList.concat(waitlistedPrograms);
