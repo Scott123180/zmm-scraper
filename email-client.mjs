@@ -74,7 +74,7 @@ const generateBodyHTML = (newPrograms, waitlistedPrograms, expiredPrograms) => {
             ${generateWaitlistedProgramContent(waitlistedPrograms)}
             ${generateExpiredProgramContent(expiredPrograms)}
         </body>
-        <footer>Message created by <a href="https://github.com/Scott123180/zmm-scraper" target="_blank" rel="noreferrer">ZMM Scraper. </a>
+        <footer>Message created by <a href="https://github.com/Scott123180/zmm-scraper" target="_blank" rel="noreferrer">ZMM Scraper</a>
         To see all programs, please click <a href="https://zmm.org/all-programs/" target="_blank" rel="noreferrer"> here</a>.
         </footer>
         </html>`;
