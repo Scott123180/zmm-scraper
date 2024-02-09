@@ -38,12 +38,14 @@ export async function scrape(event) {
     return detailedProgramData;
 };
 
-async function checkProgramPage(url, retries = 3, backoff = 300) {
+async function checkProgramPage(url, retries = 2, backoff = 300) {
     try {
-        const { data } = await axios.get(url);
+        await randomDelay(100);
+
+        const { data } = await axios.get(url, {timeout : 10_000});
         // If the request is successful, return the data
 
-        const $ = cheerio.load(data);
+        const $ = load(data);
 
         // Check for a waiting list or registration button
         const waitingListButton = $('.rs-registration-wait-list').length > 0;
@@ -54,6 +56,7 @@ async function checkProgramPage(url, retries = 3, backoff = 300) {
             hasRegistration: registrationButton,
         };
     } catch (error) {
+        console.log(error);
         if (retries > 0) {
             // Wait for a bit before retrying
             await new Promise(resolve => setTimeout(resolve, backoff));
@@ -64,4 +67,11 @@ async function checkProgramPage(url, retries = 3, backoff = 300) {
             return { error: `Failed to fetch page: ${url}` };
         }
     }
+}
+
+// Function to wait for a random amount of time
+function randomDelay(maxDelay) {
+  // Generate a random delay between minDelay and maxDelay milliseconds
+  const delay = Math.floor(Math.random() * maxDelay);
+  return new Promise(resolve => setTimeout(resolve, delay));
 }

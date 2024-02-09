@@ -7,7 +7,7 @@ const key = "programData.json"
 import StorageClient from './StorageClient.mjs';
 
 class S3StorageClient extends StorageClient {
-    async upload() {
+    async upload(data) {
         const params = {
             Bucket: bucketName,
             Key: key,

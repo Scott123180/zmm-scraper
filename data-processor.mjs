@@ -7,7 +7,6 @@ export async function processProgramData(scraperDataPromise, storedDataPromise) 
     const expiredPrograms = [];
     const currentTimestamp = new Date().getTime();
 
-    //TODO: account for timed out data - i.e. retreat page timed out
     scraperData.forEach(scrapedProgram => {
         const storedProgram = storedData.find(sd => sd.programId === scrapedProgram.programId);
 
@@ -56,18 +55,10 @@ export function createNewSaveData(storedData, newPrograms, waitlistedPrograms, e
     combinedList.concat(newPrograms);
 }
 
-export function generateUpdateContent(updated, expiredPrograms) {
-    /*create the content that will be sent out in mail
-     new programs: {program title, location, date, link}
-     waitlisted programs: {program title, location, link, original post date, how long it took to fill}
-     expired programs: {program title, location, date, original post date, how long was on website}
-    */
-}
-
 function programHasFilledUp(storedProgram, newProgram) {
-    return (storedProgram.hasWaitingList === undefined || storedProgram.hasRegistration === undefined)
-    || (storedProgram.hasWaitingList === false && storedProgram.hasRegistration === true )    
+    return (storedProgram.hasWaitingList === false 
+    && storedProgram.hasRegistration === true 
     && newProgram.hasWaitingList === true 
-    && newProgram.hasRegistration === false;
+    && newProgram.hasRegistration === false);
 }
 

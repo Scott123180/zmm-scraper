@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import { scrape } from './scraper-client.mjs';
-import { processProgramData } from './data-processor.mjs';
+import { createNewSaveData, processProgramData } from './data-processor.mjs';
 import S3StorageClient from './S3StorageClient.mjs';
 import LocalFileSystemClient from './LocalFileSystemClient.mjs';
 import { composeAndSendEmail } from './email-client.mjs';
@@ -19,9 +19,6 @@ if (process.env.NODE_ENV === 'local') {
 
 const main = async () => {
   const programData = await scrape();
-  console.log("scraped!")
-  console.log(JSON.stringify(programData));
-  console.log("end")
 
   // download data from S3
   const storedData = await storageClient.download();
@@ -37,7 +34,9 @@ const main = async () => {
   if (newPrograms.length > 0 || waitlistedPrograms.length > 0 || expiredPrograms.length > 0) {
     await composeAndSendEmail("me@scotthansen.io", newPrograms, waitlistedPrograms, expiredPrograms);
 
-    //TODO: upload new file to S3
+    //upload new file to S3
+    const newSaveData = createNewSaveData(storedData, newPrograms, waitlistedPrograms, expiredPrograms);
+    await storageClient.upload(newSaveData)
   }
 
 };
