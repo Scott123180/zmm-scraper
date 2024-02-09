@@ -16,7 +16,8 @@ class S3StorageClient extends StorageClient {
         };
 
         try {
-            const result = await s3.upload(params);
+            const command = new PutObjectCommand(params);
+            const result = await s3Client.send(command);
             console.log('Upload Success', result);
             return result;
         } catch (error) {
