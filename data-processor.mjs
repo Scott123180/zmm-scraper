@@ -53,6 +53,8 @@ export function createNewSaveData(storedData, newPrograms, waitlistedPrograms, e
 
     combinedList.concat(waitlistedPrograms);
     combinedList.concat(newPrograms);
+
+    return combinedList;
 }
 
 function programHasFilledUp(storedProgram, newProgram) {
