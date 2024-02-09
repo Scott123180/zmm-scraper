@@ -18,7 +18,7 @@ class S3StorageClient extends StorageClient {
         });
 
         try {
-            const result = await s3.send(command);
+            const result = await client.send(command);
             console.log('Upload Success', result);
             return result;
         } catch (error) {
@@ -35,7 +35,7 @@ class S3StorageClient extends StorageClient {
                 Key: key
             });
 
-            const data = await s3.send(command);
+            const data = await client.send(command);
             console.log("file downloaded successfully!")
 
             const bodyContents = await data.Body.transformToString('utf-8')
