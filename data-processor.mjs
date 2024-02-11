@@ -35,26 +35,18 @@ export async function processProgramData(scraperDataPromise, storedDataPromise) 
 }
 
 export function createNewSaveData(storedData, newPrograms, waitlistedPrograms, expiredPrograms) {
-    let combinedList = [...storedData];
-
-    //remove the expired programs from the combined list
-    combinedList = combinedList.filter(listElement => {
+    return storedData.filter(listElement => { 
+        //remove expired programs
         const foundExpiredProgram = expiredPrograms.find(expiredProgram => expiredProgram.programId === listElement.programId);
 
         return foundExpiredProgram === undefined;
-    });
-
-    //remove the original waitlisted program info so we can add the new updates to the stored data
-    combinedList = combinedList.filter(listElement => {
+    }).filter(listElement => {
+        //remove the original waitlisted program info so we can add the new updates to the stored data
         const foundWaitlistedProgram = waitlistedPrograms.find(waitlistedProgram => waitlistedProgram.programId === listElement.programId);
 
         return foundWaitlistedProgram === undefined;
-    });
-
-    combinedList = combinedList.concat(waitlistedPrograms);
-    combinedList = combinedList.concat(newPrograms);
-
-    return combinedList;
+    }).concat(waitlistedPrograms)
+    .concat(newPrograms);
 }
 
 function programHasFilledUp(storedProgram, newProgram) {
