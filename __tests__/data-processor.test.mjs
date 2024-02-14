@@ -1,4 +1,4 @@
-import { programHasFilledUp } from '../data-processor.mjs';
+import { programHasFilledUp, createNewSaveData } from '../data-processor.mjs';
 
 describe('programHasFilledUp', () => {
   test('returns true when storedProgram has registration and newProgram has waiting list', () => {
@@ -7,10 +7,20 @@ describe('programHasFilledUp', () => {
     expect(programHasFilledUp(storedProgram, newProgram)).toBe(true);
   });
 
-  test('returns false when conditions are not met', () => {
+  test('returns false when stored program does is already filled up', () => {
     const storedProgram = { hasRegistration: false };
     const newProgram = { hasWaitingList: true };
     expect(programHasFilledUp(storedProgram, newProgram)).toBe(false);
   });
 });
 
+describe('createNewSaveData', () => {
+  /*
+
+  tests:
+  1. remove expired programs
+  2. removing waitlisted programs & adding back new info
+  3. adding new programs
+  */
+
+});

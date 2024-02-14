@@ -14,6 +14,8 @@ export async function processProgramData(scraperDataPromise, storedDataPromise) 
             const shallowCopy = Object.assign({}, storedProgram);
 
             shallowCopy.filledUpTimestamp = currentTimestamp;
+            shallowCopy.hasRegistration = scrapedProgram.hasRegistration;
+            shallowCopy.hasWaitingList = scrapedProgram.hasWaitingList;
             waitlistedPrograms.push(shallowCopy);
         } else if (storedProgram === undefined) {
             // New program, add it to the updated list
