@@ -36,8 +36,8 @@ export async function processProgramData(scraperDataPromise, storedDataPromise) 
     return { newPrograms, waitlistedPrograms, expiredPrograms };
 }
 
-export function createNewSaveData(storedData, newPrograms, waitlistedPrograms, expiredPrograms) {
-    return storedData.filter(listElement => {
+export function createNewSaveData(storedPrograms, newPrograms, waitlistedPrograms, expiredPrograms) {
+    return storedPrograms.filter(listElement => {
         //remove expired programs
         const foundExpiredProgram = expiredPrograms.find(expiredProgram => expiredProgram.programId === listElement.programId);
 
