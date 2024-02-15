@@ -1,4 +1,29 @@
-import { programHasFilledUp, createNewSaveData } from '../data-processor.mjs';
+import { programHasFilledUp, createNewSaveData, processProgramData } from '../data-processor.mjs';
+
+
+//TODO
+describe('processProgramData', () => {
+  it('should correctly process data for new, waitlisted, and expired programs', async () => {
+    // Mock scraperDataPromise and storedDataPromise with the given data
+    const scraperDataPromise = Promise.resolve([newProgram1, newProgram2, newWaitlistedProgram1, newWaitlistedProgram2]);
+    const storedDataPromise = Promise.resolve([storedProgram1, storedProgram2, storedProgram3]);
+
+    // Call your function with the mocked data
+    const { newPrograms, waitlistedPrograms, expiredPrograms } = await processProgramData(scraperDataPromise, storedDataPromise);
+
+    // Expected outcomes
+    const expectedNewPrograms = [newProgram1, newProgram2];
+    const expectedWaitlistedPrograms = [newWaitlistedProgram1, newWaitlistedProgram2];
+    const expectedExpiredPrograms = []; // Assuming none of the stored programs are considered expired in this scenario
+
+    // Assertions
+    // expect(newPrograms).toEqual(expect.arrayContaining(expectedNewPrograms));
+    // expect(waitlistedPrograms).toEqual(expect.arrayContaining(expectedWaitlistedPrograms));
+    // expect(expiredPrograms).toEqual(expect.arrayContaining(expectedExpiredPrograms));
+
+    // Additional checks can be added here to validate the timestamps or any other specific logic you have
+  });
+});
 
 describe('programHasFilledUp', () => {
   test('returns true when storedProgram has registration and newProgram has waiting list', () => {
