@@ -1,21 +1,10 @@
-import dotenv from 'dotenv';
+//import dotenv from 'dotenv';
 import { scrape } from './scraper-client.mjs';
 import { createNewSaveData, processProgramData } from './data-processor.mjs';
 import S3StorageClient from './S3StorageClient.mjs';
-import LocalFileSystemClient from './LocalFileSystemClient.mjs';
 import { composeAndSendEmail } from './email-client.mjs';
 
-dotenv.config();
-
-let storageClient;
-
-if (process.env.NODE_ENV === 'local') {
-  console.log("local FS")
-  storageClient = new LocalFileSystemClient();
-} else {
-  console.log("aws s3")
-  storageClient = new S3StorageClient();
-}
+let storageClient = new S3StorageClient();
 
 const main = async () => {
   const programData = await scrape();

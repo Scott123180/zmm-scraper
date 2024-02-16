@@ -1,9 +1,6 @@
 import fs from 'fs/promises';
 
-import StorageClient from './StorageClient.mjs';
-
-//first run data
-//const sourcePath = './resources/testInputEmpty.json';
+import StorageClient from '../src/StorageClient.mjs';
 
 const sourcePath = './resources/testInput.json';
 

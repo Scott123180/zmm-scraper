@@ -1,4 +1,4 @@
-import { programHasFilledUp, createNewSaveData, processProgramData } from '../data-processor.mjs';
+import { programHasFilledUp, createNewSaveData, processProgramData } from '../src/data-processor.mjs';
 
 
 //TODO

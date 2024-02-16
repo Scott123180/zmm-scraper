@@ -1,4 +1,4 @@
-import { handler } from "../index.mjs";
+import { handler } from "../src/index.mjs";
 
 async function executeLocal(){
 
