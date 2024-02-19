@@ -7,7 +7,7 @@
   "sideEffects": false,
   "scripts": {
     "test": "jest",
-    "build": "webpack && rm -f zmm.zip && zip -j zmm.zip dist/index.js"
+    "build": "webpack && rm -f zmm.zip && zip -j zmm.zip dist/index.mjs"
   },
   "repository": {
     "type": "git",

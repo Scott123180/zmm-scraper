@@ -13,10 +13,12 @@ const webpackConfig = {
         new CleanWebpackPlugin(),
     ],
     output: {
-        filename: 'index.js',
+        filename: 'index.mjs',
         path: resolve(__dirname, 'dist'),
-        libraryTarget: 'commonjs2', // Specify module type for ESM support
         chunkFormat: 'module', // Explicitly set chunk format to 'module'
+        library: {
+            type : 'module',
+        },
     },
     // Resolve .mjs files.
     resolve: {
@@ -32,14 +34,14 @@ const webpackConfig = {
     externalsPresets: { node: true },
     // Do not bundle node_modules dependencies. This can reduce the bundle size
     // and avoid issues with native dependencies.
-    externals: [nodeExternals({
+    externals: [/*nodeExternals({
         allowlist: [
             'axios',
             'cheerio',
             "@aws-sdk/client-ses",
             "@aws-sdk/client-s3"
         ]
-    })],
+    })*/],
     module: {
         rules: [
             {
