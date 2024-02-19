@@ -1,8 +1,6 @@
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
-import nodeExternals from 'webpack-node-externals';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
-
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -32,16 +30,6 @@ const webpackConfig = {
     target: "node20",
     // Do not include any of the built-in modules in Node.js (e.g., fs, path) in the bundle.
     externalsPresets: { node: true },
-    // Do not bundle node_modules dependencies. This can reduce the bundle size
-    // and avoid issues with native dependencies.
-    externals: [/*nodeExternals({
-        allowlist: [
-            'axios',
-            'cheerio',
-            "@aws-sdk/client-ses",
-            "@aws-sdk/client-s3"
-        ]
-    })*/],
     module: {
         rules: [
             {
