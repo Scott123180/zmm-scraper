@@ -6,7 +6,7 @@ const MS_IN_A_DAY = 86_400_000;
 // Create SES service object
 const sesClient = new SESClient({ region: "us-east-1" });
 
-const sender = "ZMM Scraper <zmm-scraper@scotthansen.io>";
+const sender = "ZMM Web Scraper Program <zmm-scraper@scotthansen.io>";
 
 export async function composeAndSendEmail(recipient, newPrograms, waitlistedPrograms, expiredPrograms) {
 
@@ -88,7 +88,7 @@ const generateBodyNonHTML = (newPrograms, waitlistedPrograms, expiredPrograms) =
 
     New Program Content: ${JSON.stringify(newPrograms)}
     Waitlisted Programs: ${JSON.stringify(waitlistedPrograms)}
-    Expired Programs: ${JSON.stringify(expiredPrograms)}
+    Removed Programs: ${JSON.stringify(expiredPrograms)}
     `
 }
 
@@ -136,7 +136,7 @@ const generateWaitlistedProgramContent = (programs) => {
 const generateExpiredProgramContent = (programs) => {
     if (programs.length === 0) return "";
 
-    let htmlContent = "<h2><strong><u>These programs have expired</u></strong></h2>";
+    let htmlContent = "<h2><strong><u>These programs have been removed</u></strong></h2>";
 
     programs.forEach(program => {
         const daysOnSite = calculateDays(program.firstSeenTimestamp, new Date().getTime());
