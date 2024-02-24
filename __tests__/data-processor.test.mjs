@@ -1,27 +1,24 @@
 import { programHasFilledUp, createNewSaveData, processProgramData } from '../src/data-processor.mjs';
 
-
 //TODO
 describe('processProgramData', () => {
-  it('should correctly process data for new, waitlisted, and expired programs', async () => {
+  test('should correctly process data for new programs', async () => {
     // Mock scraperDataPromise and storedDataPromise with the given data
-    const scraperDataPromise = Promise.resolve([newProgram1, newProgram2, newWaitlistedProgram1, newWaitlistedProgram2]);
-    const storedDataPromise = Promise.resolve([storedProgram1, storedProgram2, storedProgram3]);
+    const scraperDataPromise = Promise.resolve([program4_raw_scraped, program5_raw_scraped]);
+    const storedDataPromise = Promise.resolve([program1_stored, program2_stored, program3_stored]);
 
-    // Call your function with the mocked data
     const { newPrograms, waitlistedPrograms, expiredPrograms } = await processProgramData(scraperDataPromise, storedDataPromise);
 
-    // Expected outcomes
-    const expectedNewPrograms = [newProgram1, newProgram2];
-    const expectedWaitlistedPrograms = [newWaitlistedProgram1, newWaitlistedProgram2];
+    const expectedWaitlistedPrograms = [];
     const expectedExpiredPrograms = []; // Assuming none of the stored programs are considered expired in this scenario
 
-    // Assertions
-    // expect(newPrograms).toEqual(expect.arrayContaining(expectedNewPrograms));
-    // expect(waitlistedPrograms).toEqual(expect.arrayContaining(expectedWaitlistedPrograms));
-    // expect(expiredPrograms).toEqual(expect.arrayContaining(expectedExpiredPrograms));
+    expect(newPrograms[0].programId).toEqual("rs-program-id-3315");
+    expect(newPrograms[0].firstSeenTimestamp).toBeGreaterThan(1708809547565);
+    expect(newPrograms[1].programId).toEqual("rs-program-id-3307");
+    expect(newPrograms[1].firstSeenTimestamp).toBeGreaterThan(1708809547565);
 
-    // Additional checks can be added here to validate the timestamps or any other specific logic you have
+    expect(waitlistedPrograms).toEqual(expect.arrayContaining(expectedWaitlistedPrograms));
+    expect(expiredPrograms).toEqual(expect.arrayContaining(expectedExpiredPrograms));
   });
 });
 
@@ -42,38 +39,38 @@ describe('programHasFilledUp', () => {
 describe('createNewSaveData', () => {
 
   test('removes expired programs', () => {
-    const storedPrograms = [storedProgram1, storedProgram2, storedProgram3];
+    const storedPrograms = [program1_stored, program2_stored, program3_stored];
 
-    const expiredPrograms = [storedProgram2, storedProgram3];
+    const expiredPrograms = [program2_stored, program3_stored];
 
     expect(
       createNewSaveData(storedPrograms, [], [], expiredPrograms))
-      .toEqual([storedProgram1]);
+      .toEqual([program1_stored]);
   });
 
   test('removes waitlisted programs and adds back new info', () => {
-    const storedPrograms = [storedProgram1, storedProgram2, storedProgram3];
+    const storedPrograms = [program1_stored, program2_stored, program3_stored];
 
-    const expectedPrograms = [storedProgram3, newWaitlistedProgram1, newWaitlistedProgram2];
+    const expectedPrograms = [program3_stored, program1_new_waitlisted, program2_new_waitlisted];
 
     expect(
-      createNewSaveData(storedPrograms, [], [newWaitlistedProgram1, newWaitlistedProgram2], []))
+      createNewSaveData(storedPrograms, [], [program1_new_waitlisted, program2_new_waitlisted], []))
       .toEqual(expectedPrograms);
   });
 
   test('adds new programs', () => {
-    const expectedPrograms = [storedProgram1, storedProgram2, storedProgram3, newProgram1, newProgram2];
+    const expectedPrograms = [program1_stored, program2_stored, program3_stored, program4_new, program5_new];
 
     expect(createNewSaveData(
-      [storedProgram1, storedProgram2, storedProgram3],
-      [newProgram1, newProgram2],
+      [program1_stored, program2_stored, program3_stored],
+      [program4_new, program5_new],
       [],
       []))
       .toEqual(expectedPrograms);
   })
 });
 
-const storedProgram1 = {
+const program1_stored = {
   "programId": "rs-program-id-3310",
   "link": "https://zmm.org/our-programs-2/3310/beginning-instruction-on-wednesday-evenings-at-zen-mountain-monastery-winter-schedule",
   "title": "Beginning Instruction on Wednesday Evenings at Zen Mountain Monastery (winter schedule)",
@@ -83,7 +80,7 @@ const storedProgram1 = {
   "hasWaitingList": false,
   "hasRegistration": true
 };
-const storedProgram2 = {
+const program2_stored = {
   "programId": "rs-program-id-3443",
   "link": "https://zmm.org/our-programs-2/3443/ecosattva-retreat-online",
   "title": "Ecosattva Retreat (Online)",
@@ -93,7 +90,7 @@ const storedProgram2 = {
   "hasWaitingList": false,
   "hasRegistration": true
 };
-const storedProgram3 = {
+const program3_stored = {
   "programId": "rs-program-id-3440",
   "link": "https://zmm.org/our-programs-2/3440/ecosattva-retreat",
   "title": "Ecosattva Retreat",
@@ -104,7 +101,7 @@ const storedProgram3 = {
   "hasRegistration": true
 };
 
-const newWaitlistedProgram1 = {
+const program1_new_waitlisted = {
   "programId": "rs-program-id-3310",
   "link": "https://zmm.org/our-programs-2/3310/beginning-instruction-on-wednesday-evenings-at-zen-mountain-monastery-winter-schedule",
   "title": "Beginning Instruction on Wednesday Evenings at Zen Mountain Monastery (winter schedule)",
@@ -115,7 +112,7 @@ const newWaitlistedProgram1 = {
   "hasWaitingList": true,
   "hasRegistration": false
 };
-const newWaitlistedProgram2 = {
+const program2_new_waitlisted = {
   "programId": "rs-program-id-3443",
   "link": "https://zmm.org/our-programs-2/3443/ecosattva-retreat-online",
   "title": "Ecosattva Retreat (Online)",
@@ -127,7 +124,26 @@ const newWaitlistedProgram2 = {
   "hasRegistration": false
 };
 
-const newProgram1 = {
+const program4_raw_scraped = {
+  "programId": "rs-program-id-3315",
+  "link": "https://zmm.org/our-programs-2/3315/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery",
+  "title": "Beginning Instruction on Sunday Mornings at Zen Mountain Monastery",
+  "programDate": "February 18, 2024",
+  "programLocation": "Zen Mountain Monastery",
+  "hasWaitingList": false,
+  "hasRegistration": true
+};
+const program5_raw_scraped = {
+  "programId": "rs-program-id-3307",
+  "link": "https://zmm.org/our-programs-2/3307/sunday-mornings-at-zen-mountain-monastery",
+  "title": "Sunday Mornings at Zen Mountain Monastery",
+  "programDate": "February 18, 2024",
+  "programLocation": "Zen Mountain Monastery",
+  "hasWaitingList": false,
+  "hasRegistration": true
+};
+
+const program4_new = {
   "programId": "rs-program-id-3315",
   "link": "https://zmm.org/our-programs-2/3315/beginning-instruction-on-sunday-mornings-at-zen-mountain-monastery",
   "title": "Beginning Instruction on Sunday Mornings at Zen Mountain Monastery",
@@ -137,7 +153,7 @@ const newProgram1 = {
   "hasWaitingList": false,
   "hasRegistration": true
 };
-const newProgram2 = {
+const program5_new = {
   "programId": "rs-program-id-3307",
   "link": "https://zmm.org/our-programs-2/3307/sunday-mornings-at-zen-mountain-monastery",
   "title": "Sunday Mornings at Zen Mountain Monastery",
