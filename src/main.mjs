@@ -14,8 +14,7 @@ const main = async () => {
 
   // download data from S3
   const storedProgramData = await storageClient.download(storedProgramDataFileKey);
-  const storedEmails = await storageClient.download(storedEmails);
-  console.log("read stored data!");
+  const storedEmails = await storageClient.download(storedEmailFileKey);
 
   // Process the program data
   const { newPrograms, waitlistedPrograms, expiredPrograms } = await processProgramData(programData, storedProgramData);
@@ -30,7 +29,7 @@ const main = async () => {
     //upload new file to S3
     const newSaveData = createNewSaveData(storedProgramData, newPrograms, waitlistedPrograms, expiredPrograms);
 
-    console.log("new save data")
+    console.log("new save data: ")
     console.log(JSON.stringify(newSaveData))
     await storageClient.upload(newSaveData)
   }

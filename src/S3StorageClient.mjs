@@ -35,7 +35,7 @@ class S3StorageClient extends StorageClient {
             });
 
             const data = await client.send(command);
-            console.log("file downloaded successfully!")
+            console.log("file downloaded successfully! Key=" + key)
 
             const bodyContents = await data.Body.transformToString('utf-8')
 
