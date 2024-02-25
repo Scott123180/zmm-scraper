@@ -4,6 +4,7 @@ This tool scrapes the internet for updates to workshops / activities on zmm.org.
 It is also helpful as you don't have to constantly look back for new program offerings, you just have to receive an email.
 
 # Sample Result
+![zmm_scraper_sample](https://github.com/Scott123180/zmm-scraper/assets/9338669/c85dc670-44a4-4f93-a28f-1d170504ff20)
 
 # How to run
 
