@@ -3,7 +3,7 @@ class StorageClient {
         throw new Error('upload method not implemented');
     }
 
-    async download() {
+    async download(key) {
         throw new Error('download method not implemented');
     }
 }

@@ -3,7 +3,6 @@ import { S3Client, PutObjectCommand, GetObjectCommand } from '@aws-sdk/client-s3
 const client = new S3Client({});
 
 const bucketName = "zmm-scraper"
-const key = "programData.json"
 
 import StorageClient from './StorageClient.mjs';
 
@@ -27,7 +26,7 @@ class S3StorageClient extends StorageClient {
         }
     }
 
-    async download() {
+    async download(key) {
 
         try {
             const command = new GetObjectCommand({

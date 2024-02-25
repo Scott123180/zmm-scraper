@@ -1,6 +1,5 @@
 import { programHasFilledUp, createNewSaveData, processProgramData } from '../src/data-processor.mjs';
 
-//TODO
 describe('processProgramData', () => {
   test('should correctly process data for new programs', async () => {
     // Mock scraperDataPromise and storedDataPromise with the given data

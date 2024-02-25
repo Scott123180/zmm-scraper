@@ -8,22 +8,23 @@ const sesClient = new SESClient({ region: "us-east-1" });
 
 const sender = "ZMM Web Scraper Program <zmm-scraper@scotthansen.io>";
 
-export async function composeAndSendEmail(recipient, newPrograms, waitlistedPrograms, expiredPrograms) {
+export async function composeAndSendEmail(recipients, newPrograms, waitlistedPrograms, expiredPrograms) {
 
     const bodyHTML = generateBodyHTML(newPrograms, waitlistedPrograms, expiredPrograms);
-    const body = generateBodyNonHTML(newPrograms, waitlistedPrograms, expiredPrograms);
+    const bodyText = generateBodyNonHTML(newPrograms, waitlistedPrograms, expiredPrograms);
     console.log("");
     console.log("");
     console.log("");
     console.log(bodyHTML);
 
-    await sendEmail(recipient, bodyHTML, body);
+    const emailPromises = recipients.map(r => {
+        return sendEmail(r, bodyHTML, bodyText);
+    });
+
+    await Promise.all(emailPromises);
 }
 
-const sendEmail = async (recipient, bodyHTML, body) => {
-
-    // The email body for recipients with non-HTML email clients
-    const bodyText = body;
+const sendEmail = async (recipient, bodyHTML, bodyText) => {
 
     // Set the parameters
     const params = {
@@ -49,6 +50,9 @@ const sendEmail = async (recipient, bodyHTML, body) => {
             },
         },
         Source: sender,
+        ReplyToAddresses: [
+            "me@scotthansen.io",
+        ],
     };
 
     try {
