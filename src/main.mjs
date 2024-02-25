@@ -37,10 +37,3 @@ const main = async () => {
 };
 
 export default main;
-/*
-TODO:
-4. determine updates & email accordingly (past programs need not be notified)
-5. write new version of s3 file
-- if I'm up for it, create a user preferences object and choose to subscribe to different types of updates 
-(i.e. maybe) I don't care about sunday morning registration
-*/
