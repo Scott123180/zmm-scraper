@@ -24,5 +24,7 @@ After this, create the `emails.json` and `data.json`. The values for these files
 
 1. Run `npm i` to install dependencies.
 2. Run `npm build` to run the tests, webpack, and create the upload file `zmm.zip`.
-3. Upload to S3
-4. Invoke your lamda function via the test button on AWS and ensure everything is running correctly.
+
+## 4. Upload your project to AWS Lambda
+1. Upload `zmm.zip` to your lamda function.
+2. Invoke your lamda function via the test button on AWS and ensure everything is running correctly.
