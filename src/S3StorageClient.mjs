@@ -7,7 +7,7 @@ const bucketName = "zmm-scraper"
 import StorageClient from './StorageClient.mjs';
 
 class S3StorageClient extends StorageClient {
-    async upload(data) {
+    async upload(key, data) {
 
         const command = new PutObjectCommand({
             Bucket: bucketName,

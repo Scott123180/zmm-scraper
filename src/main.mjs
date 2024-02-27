@@ -31,7 +31,7 @@ const main = async () => {
 
     console.log("new save data: ")
     console.log(JSON.stringify(newSaveData))
-    await storageClient.upload(newSaveData)
+    await storageClient.upload(storedProgramDataFileKey, newSaveData)
   }
 
 };
