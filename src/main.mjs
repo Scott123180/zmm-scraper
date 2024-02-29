@@ -1,4 +1,3 @@
-//import dotenv from 'dotenv';
 import { scrape } from './scraper-client.mjs';
 import { createNewSaveData, processProgramData } from './data-processor.mjs';
 import S3StorageClient from './S3StorageClient.mjs';
