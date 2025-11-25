@@ -4,7 +4,16 @@ import { load } from 'cheerio';
 const url = 'https://zmm.org/all-programs/';
 
 export async function scrape(event) {
-    const { data } = await axios.get(url);
+    let data;
+    try {
+        const response = await axios.get(url, { timeout: 10_000 });
+        data = response.data;
+    } catch (error) {
+        // Fail fast so we don't interpret a network/HTML failure as all programs expiring
+        const reason = error?.message || 'unknown error';
+        throw new Error(`Failed to fetch program listing from ${url}: ${reason}`);
+    }
+
     const $ = load(data);
 
 
@@ -25,6 +34,10 @@ export async function scrape(event) {
         }
     }).get()
         .filter(item => item); //filter out undefined items (where link was seen)
+
+    if (programData.length === 0) {
+        throw new Error(`Scrape returned no program entries from ${url}; aborting to avoid clearing stored data.`);
+    }
 
     // For each program link, check the specific program page
     const programDetailsPromises = programData.map(async program => {
