@@ -1,30 +1,35 @@
 # ZMM Scraper Program
-This tool scrapes the internet for updates to workshops / activities on zmm.org. Given that lots of these, especially sesshins, fill up 6 months in advance, this tool will allow you to receive email notifications as soon as new programs become available.
+Scrapes https://zmm.org/all-programs/ for new, waitlisted, or removed programs and emails subscribers when something changes. Data is persisted in S3 so each run can compare against previous program listings.
 
-It is also helpful as you don't have to constantly look back for new program offerings, you just have to receive an email.
+## How it works
+- `src/scraper-client.mjs` pulls the program listing page and each program detail page.
+- `src/data-processor.mjs` compares scraped programs to the saved list (`programData.json`) and categorizes new, waitlisted, and expired programs.
+- `src/email-client.mjs` builds an HTML/text summary and sends it to every address in `emails.json` via Amazon SES.
+- `src/S3StorageClient.mjs` reads and writes `programData.json` and `emails.json` in S3. After an update, the new data set is saved back to S3.
 
-# Sample Result
+## Requirements
+- Node.js 20+
+- AWS account with permissions for S3 (read/write to your bucket) and SES (SendEmail in `us-east-1`).
+- `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and optionally `AWS_REGION`/`AWS_PROFILE` exported in your shell or provided by your Lambda role.
+
+## One-time setup
+1) **Create an S3 bucket** to hold state. Bucket names are globally unique. The bucket name is hard-coded in `src/S3StorageClient.mjs` as `zmm-scraper`; change it to your bucket name if needed.  
+2) **Seed the state files** in that bucket:
+   - `programData.json` with `[]`
+   - `emails.json` with `["you@example.com"]` (add as many addresses as you like)
+3) **Configure SES sender**: Update the `sender` value in `src/email-client.mjs` to an address verified in SES (region `us-east-1` by default).
+
+## Local development
+- Install dependencies: `npm install`
+- Run tests: `npm test`
+- Run the lambda handler locally against live AWS services: `node local_testing/local_invoker.mjs` (requires the seeded S3 files and SES permissions).
+
+## Build and deploy
+1) Build and package: `npm run build`  
+   This runs tests, bundles the Lambda entrypoint to `dist/index.mjs`, and zips it as `zmm.zip`.
+2) Create an AWS Lambda function (Node.js 20) and upload `zmm.zip`.
+3) Set the handler to `index.handler` and ensure the execution role can read/write your S3 bucket and send via SES.
+4) Add an EventBridge rule to trigger the Lambda on your desired schedule (once per day is typical).
+
+## Sample email
 ![zmm_scraper_sample](https://github.com/Scott123180/zmm-scraper/assets/9338669/c85dc670-44a4-4f93-a28f-1d170504ff20)
-
-# How to run
-
-## 1. Create a lamda function
-See https://docs.aws.amazon.com/lambda/latest/dg/lambda-nodejs.html
-
-Once this is created, you can add an eventbridge trigger to execute this function. You may put it at whatever cadence you like. Once a day is usually fine and allows for a reduced number of emails and less load on the site.
-
-## 2. Create an S3 Bucket
-This bucket will hold the emails you have saved (`emails.json`) as well as the historical program information (`data.json`).
-
-You will need to create this bucket, then update the bucket name in the program (bucket names are globally unique).
-
-After this, create the `emails.json` and `data.json`. The values for these files should be `[<input_your_email_address@yourdomain.com>]` and `[]` respectively. This is so that the program has somewhere to start off.
-
-## 3. Build the project locally
-
-1. Run `npm i` to install dependencies.
-2. Run `npm build` to run the tests, webpack, and create the upload file `zmm.zip`.
-
-## 4. Upload your project to AWS Lambda
-1. Upload `zmm.zip` to your lamda function.
-2. Invoke your lamda function via the test button on AWS and ensure everything is running correctly.
